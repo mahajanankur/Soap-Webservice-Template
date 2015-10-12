@@ -1,0 +1,116 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AS400SearchImplService WSDL service -->
+
+  <service name="AS400SearchImpl" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://impl.service.coms.follett.com"/>
+      <parameter name="wsdlServiceElement" value="AS400SearchImplService"/>
+      <parameter name="schemaQualified" value="http://impl.service.coms.follett.com"/>
+      <parameter name="wsdlServicePort" value="AS400SearchImpl"/>
+      <parameter name="className" value="com.follett.coms.service.impl.AS400SearchImplSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="AS400SearchImpl"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getAS400OrdersByCriteria" qname="operNS:getAS400OrdersByCriteria" xmlns:operNS="http://impl.service.coms.follett.com" returnQName="retNS:getAS400OrdersByCriteriaReturn" xmlns:retNS="http://impl.service.coms.follett.com" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://impl.service.coms.follett.com" returnItemQName="tns:item" xmlns:tns="http://impl.service.coms.follett.com" soapAction="" >
+        <parameter qname="pns:orderNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:orderSuffix" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:customerNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:quoteNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:customerName" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:poNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:city" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:state" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:zip" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nation" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:orderStatus" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:orderId" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAS400CustomersByCriteria" qname="operNS:getAS400CustomersByCriteria" xmlns:operNS="http://impl.service.coms.follett.com" returnQName="retNS:getAS400CustomersByCriteriaReturn" xmlns:retNS="http://impl.service.coms.follett.com" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://impl.service.coms.follett.com" returnItemQName="tns:item" xmlns:tns="http://impl.service.coms.follett.com" soapAction="" >
+        <parameter qname="pns:customerNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:customerName" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:mdrPermanentIdNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:addressLineOne" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:phoneNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:city" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:state" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:postalCode" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:nation" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:contactName" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getAS400ItemsByCriteria" qname="operNS:getAS400ItemsByCriteria" xmlns:operNS="http://impl.service.coms.follett.com" returnQName="retNS:getAS400ItemsByCriteriaReturn" xmlns:retNS="http://impl.service.coms.follett.com" returnType="rtns:ArrayOf_xsd_anyType" xmlns:rtns="http://impl.service.coms.follett.com" returnItemQName="tns:item" xmlns:tns="http://impl.service.coms.follett.com" soapAction="" >
+        <parameter qname="pns:bookNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:title" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:author" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:copyrightYear" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:vendorNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:publisherCode" xmlns:pns="http://impl.service.coms.follett.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:vendorProductNumber" xmlns:pns="http://impl.service.coms.follett.com" type="tns:long" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="getAS400CustomersByCriteria getAS400ItemsByCriteria getAS400OrdersByCriteria"/>
+
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400ItemsByCriteria"
+        type="java:com.follett.coms.service.impl.GetAS400ItemsByCriteria"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400ItemsByCriteriaResponse"
+        type="java:com.follett.coms.service.impl.GetAS400ItemsByCriteriaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400OrdersByCriteriaResponse"
+        type="java:com.follett.coms.service.impl.GetAS400OrdersByCriteriaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400CustomersByCriteriaResponse"
+        type="java:com.follett.coms.service.impl.GetAS400CustomersByCriteriaResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400OrdersByCriteria"
+        type="java:com.follett.coms.service.impl.GetAS400OrdersByCriteria"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <arrayMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:ArrayOf_xsd_anyType"
+        type="java:java.lang.Object[]"
+        innerType="cmp-ns:anyType" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://impl.service.coms.follett.com"
+        qname="ns:>getAS400CustomersByCriteria"
+        type="java:com.follett.coms.service.impl.GetAS400CustomersByCriteria"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
